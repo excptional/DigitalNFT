@@ -13,26 +13,42 @@ Metadata: Each token has associated metadata, providing additional information s
 ### Getting Started
 To deploy and interact with the CodeBird Token contract on the Ethereum Soplia test network, follow these steps:
 
-Clone the repository:
+1.Clone the repository:
 ```shell
 git clone https://github.com/your-username/codebird-token.git
 ```
 
-Install dependencies:
+2.Install dependencies:
 ```shell
-cd codebird-token
-npm install
+npm init
+npm install --save-dev hardhat
+npx hardhat
+npm install @openzeppelin/contracts
+npm install dotenv --save
+npm install --save-dev @nomiclabs/hardhat-ethers 'ethers@^5.0.0' --force
+//Open the Command Prompt Administrator mode and go to the project direcory and run this command
+npm install @alch/alchemy-web3 
 ```
-Configure your Ethereum wallet and Alchemy API key in .env file:
+3.Configure your Ethereum wallet and Alchemy API key in .env file:
 ```shell
-MNEMONIC=your-mnemonic-here
-ALCHEMY_API_KEY=your-alchemy-api-key-here
+API_URL = "https://eth-sepolia.g.alchemy.com/v2/<your-alchemy-api-key-here>"
+PRIVATE_KEY = "<PRIVATE_KEY_OF_YOUR_METAMASK_WALLET>"
+PUBLIC_KEY = "<PUBLIC_KEY_OF_YOUR_METAMASK_WALLET>"
 ```
-Deploy the contract:
+4.Complie the contract:
+```shell
+npx hardhat compile
+```
+5.Deploy the contract:
 ```shell
 npx hardhat run scripts/deploy.js --network soplia
 ```
+6.Edit scripts deploy.js, mint-nft.js and finally deploy the NFT
+```shell
+node scripts/mint-nft.js
+```
+
 Interact with the contract using the provided scripts or integrate it into your application.
 
-License
+### License
 This project is licensed under the MIT License.
